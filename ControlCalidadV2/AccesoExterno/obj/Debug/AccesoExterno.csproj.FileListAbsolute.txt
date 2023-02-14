@@ -1,0 +1,13 @@
+C:\Users\facu1\source\repos\ControlCalidadV2\AccesoExterno\bin\Debug\AccesoExterno.dll
+C:\Users\facu1\source\repos\ControlCalidadV2\AccesoExterno\bin\Debug\AccesoExterno.pdb
+C:\Users\facu1\source\repos\ControlCalidadV2\AccesoExterno\bin\Debug\ControlCalidadV2.dll
+C:\Users\facu1\source\repos\ControlCalidadV2\AccesoExterno\bin\Debug\Nancy.dll
+C:\Users\facu1\source\repos\ControlCalidadV2\AccesoExterno\bin\Debug\Newtonsoft.Json.dll
+C:\Users\facu1\source\repos\ControlCalidadV2\AccesoExterno\bin\Debug\ControlCalidadV2.pdb
+C:\Users\facu1\source\repos\ControlCalidadV2\AccesoExterno\bin\Debug\Nancy.xml
+C:\Users\facu1\source\repos\ControlCalidadV2\AccesoExterno\bin\Debug\Newtonsoft.Json.xml
+C:\Users\facu1\source\repos\ControlCalidadV2\AccesoExterno\obj\Debug\AccesoExterno.csproj.AssemblyReference.cache
+C:\Users\facu1\source\repos\ControlCalidadV2\AccesoExterno\obj\Debug\AccesoExterno.csproj.CoreCompileInputs.cache
+C:\Users\facu1\source\repos\ControlCalidadV2\AccesoExterno\obj\Debug\AccesoExterno.csproj.CopyComplete
+C:\Users\facu1\source\repos\ControlCalidadV2\AccesoExterno\obj\Debug\AccesoExterno.dll
+C:\Users\facu1\source\repos\ControlCalidadV2\AccesoExterno\obj\Debug\AccesoExterno.pdb

@@ -1,0 +1,6 @@
+C:\Users\facu1\source\repos\ControlCalidadV2\ControlCalidadV2\bin\Debug\ControlCalidadV2.dll
+C:\Users\facu1\source\repos\ControlCalidadV2\ControlCalidadV2\bin\Debug\ControlCalidadV2.pdb
+C:\Users\facu1\source\repos\ControlCalidadV2\ControlCalidadV2\obj\Debug\Dominio.csproj.AssemblyReference.cache
+C:\Users\facu1\source\repos\ControlCalidadV2\ControlCalidadV2\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\facu1\source\repos\ControlCalidadV2\ControlCalidadV2\obj\Debug\ControlCalidadV2.dll
+C:\Users\facu1\source\repos\ControlCalidadV2\ControlCalidadV2\obj\Debug\ControlCalidadV2.pdb

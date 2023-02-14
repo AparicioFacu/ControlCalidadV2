@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="419fbdebb56a428fbf8b8e67de93bade" Name="Diagram1">
+        <EntityTypeShape EntityType="ControlCalidadModel.Alerta" Width="1.5" PointX="11.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlCalidadModel.Color" Width="1.5" PointX="3.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlCalidadModel.Defecto" Width="1.5" PointX="6" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlCalidadModel.Empleado" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlCalidadModel.EstadoOrden" Width="1.5" PointX="3.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlCalidadModel.JornadaLaboral" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlCalidadModel.Linea" Width="1.5" PointX="3.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlCalidadModel.Modelo" Width="1.5" PointX="3.75" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlCalidadModel.OrdenProduccion" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlCalidadModel.Pie" Width="1.5" PointX="6" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlCalidadModel.Registro" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlCalidadModel.Semaforo" Width="1.5" PointX="9" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlCalidadModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlCalidadModel.TipoDefecto" Width="1.5" PointX="3.75" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlCalidadModel.Turno" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <AssociationConnector Association="ControlCalidadModel.FK_Alerta_OrdenProduccion" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlCalidadModel.FK_Alerta_Semaforo" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlCalidadModel.FK_Alerta_TipoDefecto" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlCalidadModel.FK_OrdenProduccion_Color" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlCalidadModel.FK_Defecto_TipoDefecto" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlCalidadModel.FK_Registro_Defecto" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlCalidadModel.FK_JornadaLaboral_Empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlCalidadModel.FK_OrdenProduccion_Empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlCalidadModel.FK_OrdenProduccion_EstadoOrden" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlCalidadModel.FK_JornadaLaboral_OrdenProduccion" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlCalidadModel.FK_Registro_JornadaLaboral" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlCalidadModel.FK_Turno_JornadaLaboral" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlCalidadModel.FK_OrdenProduccion_Linea" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlCalidadModel.FK_OrdenProduccion_Modelo" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlCalidadModel.FK_Registro_Pie" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

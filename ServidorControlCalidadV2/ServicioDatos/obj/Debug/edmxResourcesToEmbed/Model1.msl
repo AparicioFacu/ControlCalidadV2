@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ControlCalidadModelStoreContainer" CdmEntityContainer="ControlCalidadEntities1">
+    <EntitySetMapping Name="Alerta">
+      <EntityTypeMapping TypeName="ControlCalidadModel.Alerta">
+        <MappingFragment StoreEntitySet="Alerta">
+          <ScalarProperty Name="IdAlerta" ColumnName="IdAlerta" />
+          <ScalarProperty Name="FechaHoraDetiene" ColumnName="FechaHoraDetiene" />
+          <ScalarProperty Name="FechaHoraReinicio" ColumnName="FechaHoraReinicio" />
+          <ScalarProperty Name="IdSemaforo" ColumnName="IdSemaforo" />
+          <ScalarProperty Name="IdTipoDefecto" ColumnName="IdTipoDefecto" />
+          <ScalarProperty Name="IdOrdenProduccion" ColumnName="IdOrdenProduccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Color">
+      <EntityTypeMapping TypeName="ControlCalidadModel.Color">
+        <MappingFragment StoreEntitySet="Color">
+          <ScalarProperty Name="IdColor" ColumnName="IdColor" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Defecto">
+      <EntityTypeMapping TypeName="ControlCalidadModel.Defecto">
+        <MappingFragment StoreEntitySet="Defecto">
+          <ScalarProperty Name="IdDefecto" ColumnName="IdDefecto" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdTipoDefecto" ColumnName="IdTipoDefecto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleado">
+      <EntityTypeMapping TypeName="ControlCalidadModel.Empleado">
+        <MappingFragment StoreEntitySet="Empleado">
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="ApeYNom" ColumnName="ApeYNom" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+          <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstadoOrden">
+      <EntityTypeMapping TypeName="ControlCalidadModel.EstadoOrden">
+        <MappingFragment StoreEntitySet="EstadoOrden">
+          <ScalarProperty Name="IdEstadoOrden" ColumnName="IdEstadoOrden" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JornadaLaboral">
+      <EntityTypeMapping TypeName="ControlCalidadModel.JornadaLaboral">
+        <MappingFragment StoreEntitySet="JornadaLaboral">
+          <ScalarProperty Name="IdJornadaLaboral" ColumnName="IdJornadaLaboral" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFinal" ColumnName="FechaFinal" />
+          <ScalarProperty Name="CantParPrimera" ColumnName="CantParPrimera" />
+          <ScalarProperty Name="CantParSegunda" ColumnName="CantParSegunda" />
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="IdOrdenProduccion" ColumnName="IdOrdenProduccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Linea">
+      <EntityTypeMapping TypeName="ControlCalidadModel.Linea">
+        <MappingFragment StoreEntitySet="Linea">
+          <ScalarProperty Name="IdLinea" ColumnName="IdLinea" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modelo">
+      <EntityTypeMapping TypeName="ControlCalidadModel.Modelo">
+        <MappingFragment StoreEntitySet="Modelo">
+          <ScalarProperty Name="IdModelo" ColumnName="IdModelo" />
+          <ScalarProperty Name="SKU" ColumnName="SKU" />
+          <ScalarProperty Name="Denominacion" ColumnName="Denominacion" />
+          <ScalarProperty Name="LimiteInferiorO" ColumnName="LimiteInferiorO" />
+          <ScalarProperty Name="LimiteInferiorR" ColumnName="LimiteInferiorR" />
+          <ScalarProperty Name="LimiteSuperiorO" ColumnName="LimiteSuperiorO" />
+          <ScalarProperty Name="LimiteSuperiorR" ColumnName="LimiteSuperiorR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrdenProduccion">
+      <EntityTypeMapping TypeName="ControlCalidadModel.OrdenProduccion">
+        <MappingFragment StoreEntitySet="OrdenProduccion">
+          <ScalarProperty Name="IdOrdenProduccion" ColumnName="IdOrdenProduccion" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="IdColor" ColumnName="IdColor" />
+          <ScalarProperty Name="IdModelo" ColumnName="IdModelo" />
+          <ScalarProperty Name="IdEstadoOrden" ColumnName="IdEstadoOrden" />
+          <ScalarProperty Name="IdLinea" ColumnName="IdLinea" />
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pie">
+      <EntityTypeMapping TypeName="ControlCalidadModel.Pie">
+        <MappingFragment StoreEntitySet="Pie">
+          <ScalarProperty Name="IdPie" ColumnName="IdPie" />
+          <ScalarProperty Name="Pie1" ColumnName="Pie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registro">
+      <EntityTypeMapping TypeName="ControlCalidadModel.Registro">
+        <MappingFragment StoreEntitySet="Registro">
+          <ScalarProperty Name="IdRegistro" ColumnName="IdRegistro" />
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
+          <ScalarProperty Name="IdDefecto" ColumnName="IdDefecto" />
+          <ScalarProperty Name="IdPie" ColumnName="IdPie" />
+          <ScalarProperty Name="IdJornadaLaboral" ColumnName="IdJornadaLaboral" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Semaforo">
+      <EntityTypeMapping TypeName="ControlCalidadModel.Semaforo">
+        <MappingFragment StoreEntitySet="Semaforo">
+          <ScalarProperty Name="IdSemaforo" ColumnName="IdSemaforo" />
+          <ScalarProperty Name="Semaforo1" ColumnName="Semaforo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ControlCalidadModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoDefecto">
+      <EntityTypeMapping TypeName="ControlCalidadModel.TipoDefecto">
+        <MappingFragment StoreEntitySet="TipoDefecto">
+          <ScalarProperty Name="IdTipoDefecto" ColumnName="IdTipoDefecto" />
+          <ScalarProperty Name="Defecto" ColumnName="Defecto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Turno">
+      <EntityTypeMapping TypeName="ControlCalidadModel.Turno">
+        <MappingFragment StoreEntitySet="Turno">
+          <ScalarProperty Name="IdTurno" ColumnName="IdTurno" />
+          <ScalarProperty Name="HorarioInicio" ColumnName="HorarioInicio" />
+          <ScalarProperty Name="HorarioFin" ColumnName="HorarioFin" />
+          <ScalarProperty Name="IdJornadaLaboral" ColumnName="IdJornadaLaboral" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

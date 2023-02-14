@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5801B0CB-7BBF-4F71-A3A4-4F62959B9018}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Presentador</RootNamespace>
+    <AssemblyName>Presentador</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentadores\PresentadorAdministrarOrden.cs" />
+    <Compile Include="Presentadores\PresentadorColor.cs" />
+    <Compile Include="Presentadores\PresentadorEmpleado.cs" />
+    <Compile Include="Presentadores\PresentadorLogin.cs" />
+    <Compile Include="Presentadores\PresentadorModelo.cs" />
+    <Compile Include="Presentadores\PresentadorOrdenProduccion.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vistas\VistaAdministrarOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\VistaAdministrarOrden.Designer.cs">
+      <DependentUpon>VistaAdministrarOrden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VistaColor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\VistaColor.Designer.cs">
+      <DependentUpon>VistaColor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VistaEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\VistaEmpleado.Designer.cs">
+      <DependentUpon>VistaEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VistaMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\VistaMenu.designer.cs">
+      <DependentUpon>VistaMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VistaModelos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\VistaModelos.Designer.cs">
+      <DependentUpon>VistaModelos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VistaOrdenProduccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\VistaOrdenProduccion.Designer.cs">
+      <DependentUpon>VistaOrdenProduccion.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Vistas\VistaAdministrarOrden.resx">
+      <DependentUpon>VistaAdministrarOrden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\VistaColor.resx">
+      <DependentUpon>VistaColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\VistaEmpleado.resx">
+      <DependentUpon>VistaEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\VistaMenu.resx">
+      <DependentUpon>VistaMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\VistaModelos.resx">
+      <DependentUpon>VistaModelos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\VistaOrdenProduccion.resx">
+      <DependentUpon>VistaOrdenProduccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vincular.png" />
+    <None Include="Resources\Renaudar.png" />
+    <None Include="Resources\Pausar.png" />
+    <None Include="bin\Debug\Delete.png" />
+    <Content Include="Resources\Cerrar.png" />
+    <None Include="Resources\productos.png" />
+    <None Include="Resources\icons8-tshirt-100.png" />
+    <None Include="Resources\icons8-denim-jacket-25.png" />
+    <None Include="Resources\icons8-clothing-store-1001.png" />
+    <None Include="Resources\icons8-clothing-store-100.png" />
+    <None Include="Resources\Delete.png" />
+    <None Include="Resources\Finalizar.png" />
+    <None Include="Resources\Desvincular.png" />
+    <None Include="Resources\mas.png" />
+    <None Include="Resources\menos.png" />
+    <Content Include="Resources\Minimizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AccesoExterno\AccesoExterno.csproj">
+      <Project>{9DD481A4-CFC9-484B-849B-B336F04DFA82}</Project>
+      <Name>AccesoExterno</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ControlCalidadV2\Dominio.csproj">
+      <Project>{A8A14C67-47B2-4B7A-B959-13F55FD38CD3}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

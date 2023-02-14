@@ -1,0 +1,9 @@
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioModelo\bin\Debug\ServicioModelo.dll
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioModelo\bin\Debug\ServicioModelo.pdb
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioModelo\obj\Debug\ServicioModelo.csproj.AssemblyReference.cache
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioModelo\obj\Debug\ServicioModelo.csproj.CoreCompileInputs.cache
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioModelo\obj\Debug\ServicioModelo.dll
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioModelo\obj\Debug\ServicioModelo.pdb
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioModelo\bin\Debug\ServicioVistaModelo.dll
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioModelo\bin\Debug\ServicioVistaModelo.pdb
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioModelo\obj\Debug\ServicioModelo.csproj.CopyComplete

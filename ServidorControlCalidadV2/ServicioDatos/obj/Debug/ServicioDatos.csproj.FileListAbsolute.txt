@@ -1,0 +1,16 @@
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioDatos\bin\Debug\ServicioDatos.dll.config
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioDatos\bin\Debug\ServicioDatos.dll
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioDatos\bin\Debug\ServicioDatos.pdb
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioDatos\bin\Debug\EntityFramework.dll
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioDatos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioDatos\bin\Debug\ServicioModelo.dll
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioDatos\bin\Debug\ServicioModelo.pdb
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioDatos\bin\Debug\EntityFramework.xml
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioDatos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioDatos\obj\Debug\ServicioDatos.csproj.AssemblyReference.cache
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioDatos\obj\Debug\ServicioDatos.csproj.CoreCompileInputs.cache
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioDatos\obj\Debug\ServicioDatos.csproj.CopyComplete
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioDatos\obj\Debug\ServicioDatos.dll
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioDatos\obj\Debug\ServicioDatos.pdb
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioDatos\bin\Debug\ServicioVistaModelo.dll
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServicioDatos\bin\Debug\ServicioVistaModelo.pdb

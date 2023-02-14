@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ControlCalidadModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Alerta">
+    <Key>
+      <PropertyRef Name="IdAlerta" />
+    </Key>
+    <Property Name="IdAlerta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaHoraDetiene" Type="datetime" />
+    <Property Name="FechaHoraReinicio" Type="datetime" />
+    <Property Name="IdSemaforo" Type="int" />
+    <Property Name="IdTipoDefecto" Type="int" />
+    <Property Name="IdOrdenProduccion" Type="int" />
+  </EntityType>
+  <EntityType Name="Color">
+    <Key>
+      <PropertyRef Name="IdColor" />
+    </Key>
+    <Property Name="IdColor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="int" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Defecto">
+    <Key>
+      <PropertyRef Name="IdDefecto" />
+    </Key>
+    <Property Name="IdDefecto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="IdTipoDefecto" Type="int" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="IdEmpleado" />
+    </Key>
+    <Property Name="IdEmpleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DNI" Type="varchar" MaxLength="50" />
+    <Property Name="ApeYNom" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Rol" Type="varchar" MaxLength="50" />
+    <Property Name="Contraseña" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="EstadoOrden">
+    <Key>
+      <PropertyRef Name="IdEstadoOrden" />
+    </Key>
+    <Property Name="IdEstadoOrden" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="JornadaLaboral">
+    <Key>
+      <PropertyRef Name="IdJornadaLaboral" />
+    </Key>
+    <Property Name="IdJornadaLaboral" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaInicio" Type="datetime" />
+    <Property Name="FechaFinal" Type="datetime" />
+    <Property Name="CantParPrimera" Type="int" />
+    <Property Name="CantParSegunda" Type="int" />
+    <Property Name="IdEmpleado" Type="int" />
+    <Property Name="IdOrdenProduccion" Type="int" />
+  </EntityType>
+  <EntityType Name="Linea">
+    <Key>
+      <PropertyRef Name="IdLinea" />
+    </Key>
+    <Property Name="IdLinea" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Numero" Type="int" />
+  </EntityType>
+  <EntityType Name="Modelo">
+    <Key>
+      <PropertyRef Name="IdModelo" />
+    </Key>
+    <Property Name="IdModelo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SKU" Type="varchar" MaxLength="50" />
+    <Property Name="Denominacion" Type="varchar" MaxLength="50" />
+    <Property Name="LimiteInferiorO" Type="int" />
+    <Property Name="LimiteInferiorR" Type="int" />
+    <Property Name="LimiteSuperiorO" Type="int" />
+    <Property Name="LimiteSuperiorR" Type="int" />
+  </EntityType>
+  <EntityType Name="OrdenProduccion">
+    <Key>
+      <PropertyRef Name="IdOrdenProduccion" />
+    </Key>
+    <Property Name="IdOrdenProduccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Numero" Type="varchar" MaxLength="50" />
+    <Property Name="FechaInicio" Type="datetime" />
+    <Property Name="FechaFin" Type="datetime" />
+    <Property Name="IdColor" Type="int" />
+    <Property Name="IdModelo" Type="int" />
+    <Property Name="IdEstadoOrden" Type="int" />
+    <Property Name="IdLinea" Type="int" />
+    <Property Name="IdEmpleado" Type="int" />
+  </EntityType>
+  <EntityType Name="Pie">
+    <Key>
+      <PropertyRef Name="IdPie" />
+    </Key>
+    <Property Name="IdPie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Pie" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Registro">
+    <Key>
+      <PropertyRef Name="IdRegistro" />
+    </Key>
+    <Property Name="IdRegistro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Hora" Type="datetime" />
+    <Property Name="IdDefecto" Type="int" />
+    <Property Name="IdPie" Type="int" />
+    <Property Name="IdJornadaLaboral" Type="int" />
+    <Property Name="Cantidad" Type="int" />
+  </EntityType>
+  <EntityType Name="Semaforo">
+    <Key>
+      <PropertyRef Name="IdSemaforo" />
+    </Key>
+    <Property Name="IdSemaforo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Semaforo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TipoDefecto">
+    <Key>
+      <PropertyRef Name="IdTipoDefecto" />
+    </Key>
+    <Property Name="IdTipoDefecto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Defecto" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Turno">
+    <Key>
+      <PropertyRef Name="IdTurno" />
+    </Key>
+    <Property Name="IdTurno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HorarioInicio" Type="datetime" />
+    <Property Name="HorarioFin" Type="datetime" />
+    <Property Name="IdJornadaLaboral" Type="int" />
+  </EntityType>
+  <Association Name="FK_Alerta_OrdenProduccion">
+    <End Role="OrdenProduccion" Type="Self.OrdenProduccion" Multiplicity="0..1" />
+    <End Role="Alerta" Type="Self.Alerta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrdenProduccion">
+        <PropertyRef Name="IdOrdenProduccion" />
+      </Principal>
+      <Dependent Role="Alerta">
+        <PropertyRef Name="IdOrdenProduccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Alerta_Semaforo">
+    <End Role="Semaforo" Type="Self.Semaforo" Multiplicity="0..1" />
+    <End Role="Alerta" Type="Self.Alerta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Semaforo">
+        <PropertyRef Name="IdSemaforo" />
+      </Principal>
+      <Dependent Role="Alerta">
+        <PropertyRef Name="IdSemaforo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Alerta_TipoDefecto">
+    <End Role="TipoDefecto" Type="Self.TipoDefecto" Multiplicity="0..1" />
+    <End Role="Alerta" Type="Self.Alerta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoDefecto">
+        <PropertyRef Name="IdTipoDefecto" />
+      </Principal>
+      <Dependent Role="Alerta">
+        <PropertyRef Name="IdTipoDefecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Defecto_TipoDefecto">
+    <End Role="TipoDefecto" Type="Self.TipoDefecto" Multiplicity="0..1" />
+    <End Role="Defecto" Type="Self.Defecto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoDefecto">
+        <PropertyRef Name="IdTipoDefecto" />
+      </Principal>
+      <Dependent Role="Defecto">
+        <PropertyRef Name="IdTipoDefecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JornadaLaboral_Empleado">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+    <End Role="JornadaLaboral" Type="Self.JornadaLaboral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="IdEmpleado" />
+      </Principal>
+      <Dependent Role="JornadaLaboral">
+        <PropertyRef Name="IdEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JornadaLaboral_OrdenProduccion">
+    <End Role="OrdenProduccion" Type="Self.OrdenProduccion" Multiplicity="0..1" />
+    <End Role="JornadaLaboral" Type="Self.JornadaLaboral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrdenProduccion">
+        <PropertyRef Name="IdOrdenProduccion" />
+      </Principal>
+      <Dependent Role="JornadaLaboral">
+        <PropertyRef Name="IdOrdenProduccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrdenProduccion_Color">
+    <End Role="Color" Type="Self.Color" Multiplicity="0..1" />
+    <End Role="OrdenProduccion" Type="Self.OrdenProduccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Color">
+        <PropertyRef Name="IdColor" />
+      </Principal>
+      <Dependent Role="OrdenProduccion">
+        <PropertyRef Name="IdColor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrdenProduccion_Empleado">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+    <End Role="OrdenProduccion" Type="Self.OrdenProduccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="IdEmpleado" />
+      </Principal>
+      <Dependent Role="OrdenProduccion">
+        <PropertyRef Name="IdEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrdenProduccion_EstadoOrden">
+    <End Role="EstadoOrden" Type="Self.EstadoOrden" Multiplicity="0..1" />
+    <End Role="OrdenProduccion" Type="Self.OrdenProduccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadoOrden">
+        <PropertyRef Name="IdEstadoOrden" />
+      </Principal>
+      <Dependent Role="OrdenProduccion">
+        <PropertyRef Name="IdEstadoOrden" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrdenProduccion_Linea">
+    <End Role="Linea" Type="Self.Linea" Multiplicity="0..1" />
+    <End Role="OrdenProduccion" Type="Self.OrdenProduccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Linea">
+        <PropertyRef Name="IdLinea" />
+      </Principal>
+      <Dependent Role="OrdenProduccion">
+        <PropertyRef Name="IdLinea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrdenProduccion_Modelo">
+    <End Role="Modelo" Type="Self.Modelo" Multiplicity="0..1" />
+    <End Role="OrdenProduccion" Type="Self.OrdenProduccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modelo">
+        <PropertyRef Name="IdModelo" />
+      </Principal>
+      <Dependent Role="OrdenProduccion">
+        <PropertyRef Name="IdModelo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Registro_Defecto">
+    <End Role="Defecto" Type="Self.Defecto" Multiplicity="0..1" />
+    <End Role="Registro" Type="Self.Registro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Defecto">
+        <PropertyRef Name="IdDefecto" />
+      </Principal>
+      <Dependent Role="Registro">
+        <PropertyRef Name="IdDefecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Registro_JornadaLaboral">
+    <End Role="JornadaLaboral" Type="Self.JornadaLaboral" Multiplicity="0..1" />
+    <End Role="Registro" Type="Self.Registro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JornadaLaboral">
+        <PropertyRef Name="IdJornadaLaboral" />
+      </Principal>
+      <Dependent Role="Registro">
+        <PropertyRef Name="IdJornadaLaboral" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Registro_Pie">
+    <End Role="Pie" Type="Self.Pie" Multiplicity="0..1" />
+    <End Role="Registro" Type="Self.Registro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pie">
+        <PropertyRef Name="IdPie" />
+      </Principal>
+      <Dependent Role="Registro">
+        <PropertyRef Name="IdPie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Turno_JornadaLaboral">
+    <End Role="JornadaLaboral" Type="Self.JornadaLaboral" Multiplicity="0..1" />
+    <End Role="Turno" Type="Self.Turno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JornadaLaboral">
+        <PropertyRef Name="IdJornadaLaboral" />
+      </Principal>
+      <Dependent Role="Turno">
+        <PropertyRef Name="IdJornadaLaboral" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ControlCalidadModelStoreContainer">
+    <EntitySet Name="Alerta" EntityType="Self.Alerta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Color" EntityType="Self.Color" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Defecto" EntityType="Self.Defecto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EstadoOrden" EntityType="Self.EstadoOrden" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JornadaLaboral" EntityType="Self.JornadaLaboral" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Linea" EntityType="Self.Linea" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Modelo" EntityType="Self.Modelo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrdenProduccion" EntityType="Self.OrdenProduccion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pie" EntityType="Self.Pie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registro" EntityType="Self.Registro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Semaforo" EntityType="Self.Semaforo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoDefecto" EntityType="Self.TipoDefecto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Turno" EntityType="Self.Turno" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Alerta_OrdenProduccion" Association="Self.FK_Alerta_OrdenProduccion">
+      <End Role="OrdenProduccion" EntitySet="OrdenProduccion" />
+      <End Role="Alerta" EntitySet="Alerta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Alerta_Semaforo" Association="Self.FK_Alerta_Semaforo">
+      <End Role="Semaforo" EntitySet="Semaforo" />
+      <End Role="Alerta" EntitySet="Alerta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Alerta_TipoDefecto" Association="Self.FK_Alerta_TipoDefecto">
+      <End Role="TipoDefecto" EntitySet="TipoDefecto" />
+      <End Role="Alerta" EntitySet="Alerta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Defecto_TipoDefecto" Association="Self.FK_Defecto_TipoDefecto">
+      <End Role="TipoDefecto" EntitySet="TipoDefecto" />
+      <End Role="Defecto" EntitySet="Defecto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JornadaLaboral_Empleado" Association="Self.FK_JornadaLaboral_Empleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="JornadaLaboral" EntitySet="JornadaLaboral" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JornadaLaboral_OrdenProduccion" Association="Self.FK_JornadaLaboral_OrdenProduccion">
+      <End Role="OrdenProduccion" EntitySet="OrdenProduccion" />
+      <End Role="JornadaLaboral" EntitySet="JornadaLaboral" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrdenProduccion_Color" Association="Self.FK_OrdenProduccion_Color">
+      <End Role="Color" EntitySet="Color" />
+      <End Role="OrdenProduccion" EntitySet="OrdenProduccion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrdenProduccion_Empleado" Association="Self.FK_OrdenProduccion_Empleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="OrdenProduccion" EntitySet="OrdenProduccion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrdenProduccion_EstadoOrden" Association="Self.FK_OrdenProduccion_EstadoOrden">
+      <End Role="EstadoOrden" EntitySet="EstadoOrden" />
+      <End Role="OrdenProduccion" EntitySet="OrdenProduccion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrdenProduccion_Linea" Association="Self.FK_OrdenProduccion_Linea">
+      <End Role="Linea" EntitySet="Linea" />
+      <End Role="OrdenProduccion" EntitySet="OrdenProduccion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrdenProduccion_Modelo" Association="Self.FK_OrdenProduccion_Modelo">
+      <End Role="Modelo" EntitySet="Modelo" />
+      <End Role="OrdenProduccion" EntitySet="OrdenProduccion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Registro_Defecto" Association="Self.FK_Registro_Defecto">
+      <End Role="Defecto" EntitySet="Defecto" />
+      <End Role="Registro" EntitySet="Registro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Registro_JornadaLaboral" Association="Self.FK_Registro_JornadaLaboral">
+      <End Role="JornadaLaboral" EntitySet="JornadaLaboral" />
+      <End Role="Registro" EntitySet="Registro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Registro_Pie" Association="Self.FK_Registro_Pie">
+      <End Role="Pie" EntitySet="Pie" />
+      <End Role="Registro" EntitySet="Registro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Turno_JornadaLaboral" Association="Self.FK_Turno_JornadaLaboral">
+      <End Role="JornadaLaboral" EntitySet="JornadaLaboral" />
+      <End Role="Turno" EntitySet="Turno" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

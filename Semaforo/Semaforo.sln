@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Semaforo", "Semaforo\Semaforo.csproj", "{1135E2E1-30A0-40FD-9480-219506303439}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccesoExterno", "AccesoExterno\AccesoExterno.csproj", "{5E893D98-B3B8-410F-AA6D-EDADAB39CC2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{A7C86EBC-D110-4E88-9FDA-5EA93D7F169D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1135E2E1-30A0-40FD-9480-219506303439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1135E2E1-30A0-40FD-9480-219506303439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1135E2E1-30A0-40FD-9480-219506303439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1135E2E1-30A0-40FD-9480-219506303439}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E893D98-B3B8-410F-AA6D-EDADAB39CC2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E893D98-B3B8-410F-AA6D-EDADAB39CC2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E893D98-B3B8-410F-AA6D-EDADAB39CC2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E893D98-B3B8-410F-AA6D-EDADAB39CC2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7C86EBC-D110-4E88-9FDA-5EA93D7F169D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7C86EBC-D110-4E88-9FDA-5EA93D7F169D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7C86EBC-D110-4E88-9FDA-5EA93D7F169D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7C86EBC-D110-4E88-9FDA-5EA93D7F169D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B6789097-06D9-4FE9-A365-2707160A4540}
+	EndGlobalSection
+EndGlobal
