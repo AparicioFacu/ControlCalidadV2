@@ -36,6 +36,11 @@ namespace Presentador.Vistas
         private void button1_Click(object sender, EventArgs e)
         {
             _presentador.CrearOrden(txtNumero.Text, cbxColor.Text,cbxLinea.Text,cbxModelo.Text);
+            txtNumero.Text = "";
+            //cbxColor.Items.Clear();
+            //cbxLinea.Items.Clear();
+            //cbxModelo.Items.Clear();
+
         }
     }
 }

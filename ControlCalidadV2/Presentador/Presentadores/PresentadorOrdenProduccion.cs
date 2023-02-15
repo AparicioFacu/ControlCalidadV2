@@ -26,9 +26,10 @@ namespace Presentador.Presentadores
         public void CrearOrden(string numero, string color, string linea, string modelo)
         {
             Post post = new Post();
+            string fechaHoy = DateTime.Now.ToString("yyyy-MM-dd H:mm:ss");
             OrdenProduccion ordenProduccion = new OrdenProduccion();
             ordenProduccion.Numero = numero;
-            ordenProduccion.FechaInicio = DateTime.Now;
+            ordenProduccion.FechaInicio = DateTime.Parse(fechaHoy);
             ordenProduccion.Color = new Color
             {
                 Id = GetColor(color)
@@ -62,16 +63,17 @@ namespace Presentador.Presentadores
         {
             Post post = new Post();
             //JornadaLaboral
+            string fechaHoy = DateTime.Now.ToString("yyyy-MM-dd H:mm:ss");
             JornadaLaboral jornadaLaboral = new JornadaLaboral();
-            jornadaLaboral.FechaInicio = DateTime.Now;
+            jornadaLaboral.FechaInicio = DateTime.Parse(fechaHoy);
             jornadaLaboral.Empleado = new Empleado
             {
                 Id = GetEmpleado(nombreEmpleado)
             };
             //Turno
             Turno turno = new Turno();
-            turno.HoraInicio = DateTime.Now;
-            DateTime today = DateTime.Now;
+            turno.HoraInicio = DateTime.Parse(fechaHoy);
+            DateTime today = DateTime.Parse(fechaHoy);
             TimeSpan duration = new TimeSpan(0, 6, 0, 0);
             turno.HoraFin = today.Add(duration);
             jornadaLaboral.Turnos = new List<Turno>();

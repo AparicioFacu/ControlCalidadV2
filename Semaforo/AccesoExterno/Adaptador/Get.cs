@@ -70,6 +70,10 @@ namespace AccesoExterno.Adaptador
         {
             return Gets(url + $"Registro?idOrden={idOrden}&pie={pie}");
         }
+        public T GetjornadaLaboralPorId(int idJornada)
+        {
+            return GetUnico(url + $"jornadalaboral?idJornada={idJornada}");
+        }
 
     }
 }

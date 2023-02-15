@@ -46,6 +46,7 @@
     <Compile Include="Defecto.cs" />
     <Compile Include="Empleado.cs" />
     <Compile Include="EstadoOrden.cs" />
+    <Compile Include="JornadaLaboral.cs" />
     <Compile Include="Linea.cs" />
     <Compile Include="Modelo.cs" />
     <Compile Include="OrdenProduccion.cs" />

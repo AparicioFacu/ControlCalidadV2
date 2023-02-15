@@ -21,9 +21,10 @@ namespace Presentador.Vistas
         string _color;
         int _tipoDefecto;
         string controlCalidad;
+        int idEmpleado;
         ConexionSocket con;
         Dictionary<string, VistaAdministrarOrden> di;
-        public VistaAdministrarOrden(string controlCalidad, Dictionary<string, VistaAdministrarOrden> di, ConexionSocket con)
+        public VistaAdministrarOrden(string controlCalidad, Dictionary<string, VistaAdministrarOrden> di, ConexionSocket con,int idEmpleado)
         {            
             InitializeComponent();           
             btnPausarOP.Visible = false;
@@ -34,6 +35,7 @@ namespace Presentador.Vistas
             this.controlCalidad = controlCalidad;
             this.di = di;
             this.con = con;
+            this.idEmpleado = idEmpleado;
         }
         //Socket  
         public void Agregar(string mensaje)
@@ -191,83 +193,140 @@ namespace Presentador.Vistas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string numero;
-            DataGridViewRow fila = dgvOrdenProducciones.SelectedRows[0] as DataGridViewRow;
-            numero = fila.Cells["Numero"].Value.ToString();
-            _presentador.PausarOP(numero,dgvOrdenProducciones,_color, _tipoDefecto);
+            try
+            {
+                string numero;
+                DataGridViewRow fila = dgvOrdenProducciones.SelectedRows[0] as DataGridViewRow;
+                numero = fila.Cells["Numero"].Value.ToString();
+                _presentador.PausarOP(numero, dgvOrdenProducciones, _color, _tipoDefecto);
+            }
+            catch (Exception)
+            {
+
+
+            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string numero;
-            DataGridViewRow fila = dgvOrdenProducciones.SelectedRows[0] as DataGridViewRow;
-            numero = fila.Cells["Numero"].Value.ToString();
-            _presentador.FinalizarOP(numero, dgvOrdenProducciones);
+            try
+            {
+                string numero;
+                DataGridViewRow fila = dgvOrdenProducciones.SelectedRows[0] as DataGridViewRow;
+                numero = fila.Cells["Numero"].Value.ToString();
+                _presentador.FinalizarOP(numero, dgvOrdenProducciones);
+            }
+            catch (Exception)
+            {
+
+            }
+            
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            string numero;
-            DataGridViewRow fila = dgvOrdenProducciones.SelectedRows[0] as DataGridViewRow;
-            numero = fila.Cells["Numero"].Value.ToString();
-            _presentador.RenaudarOP(numero, dgvOrdenProducciones);
-            string texto = _presentador.ConectarSocket();
-            this.con.Send("Monitor1" + "-" + texto); // enviar id y fecha de reinicio    
+            try
+            {
+                string numero;
+                DataGridViewRow fila = dgvOrdenProducciones.SelectedRows[0] as DataGridViewRow;
+                numero = fila.Cells["Numero"].Value.ToString();
+                _presentador.RenaudarOP(numero, dgvOrdenProducciones);
+                string texto = _presentador.ConectarSocket();
+                this.con.Send("Monitor1" + "-" + texto); // enviar id y fecha de reinicio   
+            }
+            catch (Exception)
+            {
+
+            }
+            
         }
         private void btnDesvincularEmpleado_Click(object sender, EventArgs e)
         {
-            string numero;
-            string estado;
-            DataGridViewRow fila = dgvOrdenProducciones.SelectedRows[0] as DataGridViewRow;
-            estado = fila.Cells["Estado"].Value.ToString();
-            _presentador.DesvincularEmpleado(estado, dgvOrdenProducciones);
+            try
+            {
+                string numero;
+                string estado;
+                DataGridViewRow fila = dgvOrdenProducciones.SelectedRows[0] as DataGridViewRow;
+                estado = fila.Cells["Estado"].Value.ToString();
+                _presentador.DesvincularEmpleado(estado, dgvOrdenProducciones);
+            }
+            catch (Exception)
+            {
+
+            }
+            
         }
         public void VisibleBotonEstado()
         {
-            string estado;
-            DataGridViewRow fila1 = dgvOrdenProducciones.SelectedRows[0] as DataGridViewRow;
-            estado = fila1.Cells["Estado"].Value.ToString();
-            if (estado == "Iniciada")
+            try
             {
-                btnPausarOP.Visible = true;                               
-                btnFinalizarOP.Visible = true;
-                btnRenaudarOP.Visible = false;
+                string estado;
+                DataGridViewRow fila1 = dgvOrdenProducciones.SelectedRows[0] as DataGridViewRow;
+                estado = fila1.Cells["Estado"].Value.ToString();
+                if (estado == "Iniciada")
+                {
+                    btnPausarOP.Visible = true;
+                    btnFinalizarOP.Visible = true;
+                    btnRenaudarOP.Visible = false;
+                }
+                if (estado == "Pausada")
+                {
+                    btnRenaudarOP.Visible = true;
+                    btnFinalizarOP.Visible = true;
+                    btnPausarOP.Visible = false;
+                }
+                if (estado == "Finalizada")
+                {
+                    btnRenaudarOP.Visible = true;
+                    btnFinalizarOP.Visible = false;
+                    btnPausarOP.Visible = false;
+                }
             }
-            if (estado == "Pausada")
+            catch (Exception)
             {
-                btnRenaudarOP.Visible = true;
-                btnFinalizarOP.Visible = true;
-                btnPausarOP.Visible = false;                
+
             }
-            if (estado == "Finalizada")
-            {
-                btnRenaudarOP.Visible = true;
-                btnFinalizarOP.Visible = false;
-                btnPausarOP.Visible = false;
-            }
+            
         }
         public void VisibleBotonEmpleado()
         {
-            string empleado;
-            DataGridViewRow fila1 = dgvOrdenProducciones.SelectedRows[0] as DataGridViewRow;
-            empleado = fila1.Cells["Empleado"].Value.ToString();
-            if (empleado == "Sin Empleado")
+            try
             {
-                btnVincularEmpleado.Visible = true;
-                btnDesvincularEmpleado.Visible = false;
+                string empleado;
+                DataGridViewRow fila1 = dgvOrdenProducciones.SelectedRows[0] as DataGridViewRow;
+                empleado = fila1.Cells["Empleado"].Value.ToString();
+                if (empleado == "Sin Empleado")
+                {
+                    btnVincularEmpleado.Visible = true;
+                    btnDesvincularEmpleado.Visible = false;
+                }
+                else
+                {
+                    btnDesvincularEmpleado.Visible = true;
+                    btnVincularEmpleado.Visible = false;
+                }
             }
-            else
+            catch (Exception)
             {
-                btnDesvincularEmpleado.Visible = true;
-                btnVincularEmpleado.Visible = false;
-            }          
+
+            }
+                   
         }
         private void btnVincularEmpleado_Click(object sender, EventArgs e)
         {
-            string estado;
-            DataGridViewRow fila = dgvOrdenProducciones.SelectedRows[0] as DataGridViewRow;
-            estado = fila.Cells["Estado"].Value.ToString();
-            _presentador.VincularEmpleado(estado, dgvOrdenProducciones);
+            try
+            {
+                string estado;
+                DataGridViewRow fila = dgvOrdenProducciones.SelectedRows[0] as DataGridViewRow;
+                estado = fila.Cells["Estado"].Value.ToString();
+                _presentador.VincularEmpleado(estado, idEmpleado, dgvOrdenProducciones);
+            }
+            catch (Exception)
+            {
+
+            }
+
         }
     }
 }

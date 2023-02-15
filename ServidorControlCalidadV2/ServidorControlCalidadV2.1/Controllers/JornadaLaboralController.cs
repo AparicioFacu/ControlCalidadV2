@@ -72,6 +72,34 @@ namespace ServidorControlCalidadV2._1.Controllers
             return Ok(listJornadaLaboral);
         }
         [HttpGet]
+        public IHttpActionResult GetJornadaLaboralPorId(int idJornada)
+        {
+            List<JornadaLaboralVM> listJornadaLaboral = new List<JornadaLaboralVM>();
+            using (ControlCalidadEntities1 db = new ControlCalidadEntities1())
+            {
+                listJornadaLaboral = (from jornada in db.JornadaLaboral
+                                      where jornada.IdJornadaLaboral == idJornada
+                                      select new JornadaLaboralVM
+                                      {
+                                          Id = jornada.IdJornadaLaboral,
+                                          CParPrimera = jornada.CantParPrimera,
+                                          CParSegunda = jornada.CantParSegunda,
+                                          Empleado = new EmpleadoVM
+                                          {
+                                              Id = jornada.Empleado.IdEmpleado,
+                                              ApeYNom = jornada.Empleado.ApeYNom,
+                                              Email = jornada.Empleado.Email,
+                                              Dni = jornada.Empleado.DNI,
+                                              Rol = jornada.Empleado.Rol
+                                          },
+                                          FechaInicio = jornada.FechaInicio,
+                                          FechaFin = jornada.FechaFinal,
+                                          IdOrdenProduccion = jornada.IdOrdenProduccion                                                                                                
+                                      }).ToList();
+            }
+            return Ok(listJornadaLaboral[0]);
+        }
+        [HttpGet]
         public IHttpActionResult GetJornadaLaboral(DateTime fecha)
         {
             List<JornadaLaboralVM> listJornadaLaboral = new List<JornadaLaboralVM>();

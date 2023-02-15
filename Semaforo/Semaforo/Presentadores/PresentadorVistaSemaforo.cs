@@ -35,7 +35,7 @@ namespace Semaforo.Presentadores
                     int regMinutos = int.Parse(regHora.ToString("mm"));
                     int regSegundos = int.Parse(regHora.ToString("ss"));
                     DateTime hora = DateTime.Parse(horaReinicio);
-                    if (hora.TimeOfDay < new TimeSpan(regHoras, regMinutos, regSegundos))
+                    if (hora.TimeOfDay <= new TimeSpan(regHoras, regMinutos, regSegundos))
                     {
                         listRegistroUltimaHora.Add(reg);
                     }
@@ -78,7 +78,8 @@ namespace Semaforo.Presentadores
         public void ObtenerOrden(int idJornada,Label lblLimitesInferiorObservado, Label lblLimitesInferiorReproceso, Label lblLimitesSuperiorObservado, Label lblLimitesSuperiorReproceso)
         {
             Get<OrdenProduccion> getOrden = new Get<OrdenProduccion>();
-            OrdenProduccion orden = getOrden.GetOrdenPorJornadaLaboral(idJornada);
+            Get<JornadaLaboral> getJornada = new Get<JornadaLaboral>();
+            OrdenProduccion orden = getOrden.GetOrdenPorJornadaLaboral((int)getJornada.GetjornadaLaboralPorId(idJornada).IdOrdenProduccion);
             lblLimitesInferiorObservado.Text = orden.Modelo.LimiteInferiorO.ToString();
             lblLimitesInferiorReproceso.Text = orden.Modelo.LimiteInferiorR.ToString();
             lblLimitesSuperiorObservado.Text = orden.Modelo.LimiteSuperiorO.ToString();
@@ -101,8 +102,17 @@ namespace Semaforo.Presentadores
         }
         public List<string> GeneraIntervaloHoras(DateTime _horainicio, DateTime _horafin)
         {
+            string _minutosHoraInicio = _horainicio.ToString("mm");
+            string _segundosHoraInicio = _horainicio.ToString("ss");
+            string _minutosHoraFin = _horainicio.ToString("mm");
+            string _segundosHoraFin = _horainicio.ToString("ss");
             List<string> resultado = new List<string>();
             DateTime _horaactual = _horainicio;
+            _horaactual = _horaactual.AddMinutes(-double.Parse(_minutosHoraInicio));
+            _horaactual = _horaactual.AddSeconds(-double.Parse(_segundosHoraInicio));
+            _horafin = _horafin.AddHours(1);
+            _horafin = _horafin.AddMinutes(-double.Parse(_minutosHoraFin));
+            _horafin = _horafin.AddSeconds(-double.Parse(_segundosHoraFin));
 
             while (_horaactual < _horafin)
             {

@@ -32,7 +32,6 @@ namespace Presentador.Vistas
             MenuInicio.idEmpleado = id;
             PersonalizarMenu();
             PresentadorOrdenProduccion _presentador = new PresentadorOrdenProduccion(nombre,id);
-            PresentadorAdministrarOrden _presentadorAdmin = new PresentadorAdministrarOrden(id);
             //Socket
             Control.CheckForIllegalCrossThreadCalls = false;
             _con = new ConexionSocket();
@@ -105,7 +104,7 @@ namespace Presentador.Vistas
                 form = panelForm.Controls.OfType<VistaAdministrarOrden>().FirstOrDefault();
                 if (form == null)
                 {
-                    form = new VistaAdministrarOrden("ControlCalidad", di, _con);
+                    form = new VistaAdministrarOrden("ControlCalidad", di, _con, idEmpleado);
                     form.TopLevel = false;
                     form.FormBorderStyle = FormBorderStyle.None;
                     form.Dock = DockStyle.Fill;

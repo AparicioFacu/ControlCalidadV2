@@ -13,13 +13,7 @@ namespace Presentador.Presentadores
     {
         
         JornadaLaboral jornadaPorFecha = new JornadaLaboral();
-        string FechaHoraReinicio;
-        int idEmpleado;
-
-        public PresentadorAdministrarOrden(int id)
-        {
-            idEmpleado = id;
-        }
+        string FechaHoraReinicio;       
         public void CargarTablaOrdenProduccion(DataGridView tabla)
         {            
             Get<OrdenProduccion> getOrden = new Get<OrdenProduccion>();
@@ -38,7 +32,7 @@ namespace Presentador.Presentadores
                                     Empleado = jornada.Empleado.ApeYNom
                                 }
                 ).Distinct().ToList();
-            tabla.Columns["InicioJornada"].DefaultCellStyle.Format = "yyyy-MM-dd";
+            tabla.Columns["InicioJornada"].DefaultCellStyle.Format = "yyyy-MM-dd H:mm:ss";
         }
         public void BuscarOrdenProduccion(DataGridView tabla, string numero)
         {
@@ -81,6 +75,7 @@ namespace Presentador.Presentadores
         }
         public void AgregarDefecto(string horaTurno, string defecto, string tipoPie, string tipoDefecto,DataGridView tablaIzquieda, DataGridView tablaDerecha)
         {
+            string fechaHoy = DateTime.Now.ToString("yyyy-MM-dd H:mm:ss");
             Get<Defecto> getDefecto = new Get<Defecto>();
             Get<TipoPie> getTipoPie = new Get<TipoPie>();
             Post post = new Post();
@@ -88,7 +83,7 @@ namespace Presentador.Presentadores
             Registro registro = new Registro();
             registro.Defecto = getDefecto.GetDefectoPorDescripcion(defecto);
             registro.TipoPie = getTipoPie.GetPiePorDescripcion(tipoPie);
-            registro.Hora = DateTime.Now;
+            registro.Hora = DateTime.Parse(fechaHoy);
             registro.IdJornadaLaboral = jornadaPorFecha.Id;           
             post.PostRegistro(registro);
             GetDefectos(tablaIzquieda, tablaDerecha, horaTurno, tipoDefecto);
@@ -118,7 +113,7 @@ namespace Presentador.Presentadores
                                 {
                                     Defecto = registro.Defecto.Descripcion,                                   
                                 }
-                ).Distinct().ToList();
+                ).ToList();
             
             tablaDerecha.DataSource = (from registro in getRegistro.GetRegistroPorPie((int)jornadaPorFecha.Id, 2, horaTurno, tipoDefecto)
                                         select new
@@ -126,7 +121,7 @@ namespace Presentador.Presentadores
                                             Defecto = registro.Defecto.Descripcion,
                                             
                                         }
-                ).Distinct().ToList();
+                ).ToList();
                   
         }
         public void DesvincularEmpleado(string estado, DataGridView tabla)
@@ -139,7 +134,7 @@ namespace Presentador.Presentadores
                 CargarTablaOrdenProduccion(tabla);
             }          
         }
-        public void VincularEmpleado(string estado, DataGridView tabla)
+        public void VincularEmpleado(string estado,int idEmpleado, DataGridView tabla)
         {
             Put put = new Put();
             if (estado == "Pausada")
@@ -151,13 +146,14 @@ namespace Presentador.Presentadores
         }
         public void PausarOP(string numero, DataGridView tabla,string color,int tipoDefecto)
         {
+            string fechaHoy = DateTime.Now.ToString("yyyy-MM-dd H:mm:ss");
             string estado = EstadoOrdenEnum.Pausada.ToString();
             CambiarEstado(numero, tabla, estado);
             if(color == SemaforoEnum.Rojo.ToString())
             {
                 Post post = new Post();
                 Alerta _alerta = new Alerta();
-                _alerta.FechaHoraDetine = DateTime.Now;
+                _alerta.FechaHoraDetine = DateTime.Parse(fechaHoy);
                 _alerta.IdOrdenProduccion = jornadaPorFecha.IdOrdenProduccion;
                 _alerta.Semaforo = new Semaforo
                 {
@@ -172,11 +168,12 @@ namespace Presentador.Presentadores
         }
         public void RenaudarOP(string numero, DataGridView tabla)
         {
+            string fechaHoy = DateTime.Now.ToString("yyyy-MM-dd H:mm:ss");
             string estado = EstadoOrdenEnum.Iniciada.ToString();
             CambiarEstado(numero, tabla, estado);
             Get<Alerta> getAlerta = new Get<Alerta>();
             Alerta alerta = getAlerta.GetAlertaPorOrden((int)jornadaPorFecha.IdOrdenProduccion);
-            alerta.FechaHoraReinicio = DateTime.Now;
+            alerta.FechaHoraReinicio = DateTime.Parse(fechaHoy);
             alerta.IdOrdenProduccion = jornadaPorFecha.IdOrdenProduccion;
             Put put = new Put();
             put.PutAlerta(alerta);
@@ -261,9 +258,17 @@ namespace Presentador.Presentadores
         }
         public List<string> GeneraIntervaloHoras(DateTime _horainicio, DateTime _horafin)
         {
+            string _minutosHoraInicio = _horainicio.ToString("mm");
+            string _segundosHoraInicio = _horainicio.ToString("ss");
+            string _minutosHoraFin = _horainicio.ToString("mm");
+            string _segundosHoraFin = _horainicio.ToString("ss");
             List<string> resultado = new List<string>();            
             DateTime _horaactual = _horainicio;
-
+            _horaactual = _horaactual.AddMinutes(-double.Parse(_minutosHoraInicio));
+            _horaactual = _horaactual.AddSeconds(-double.Parse(_segundosHoraInicio));
+            _horafin = _horafin.AddHours(1);
+            _horafin = _horafin.AddMinutes(-double.Parse(_minutosHoraFin));
+            _horafin = _horafin.AddSeconds(-double.Parse(_segundosHoraFin));
             while (_horaactual < _horafin)
             {
                 resultado.Add(

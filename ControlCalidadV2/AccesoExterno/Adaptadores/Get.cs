@@ -51,7 +51,7 @@ namespace AccesoExterno.Adaptadores
             return objec;
         }
         public T GetOrden(string num)
-        {           
+        {
             return GetUnico(url + $"ordenproduccion?numero={num}");
         }
         public List<T> GetOrdenes()
