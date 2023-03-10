@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using ServicioAplicacion;
 
 namespace ServidorControlCalidadV2._1.Controllers
 {
@@ -16,55 +17,59 @@ namespace ServidorControlCalidadV2._1.Controllers
         [HttpGet]
         public IHttpActionResult GetOrdenProducciones()
         {
+            //ControlCalidadEntities1 db = new ControlCalidadEntities1();
+            //return Ok(db.OrdenProduccion.ToList());
             List<OrdenProduccionVM> listOrdenProduccion = new List<OrdenProduccionVM>();
+
             using (ControlCalidadEntities1 db = new ControlCalidadEntities1())
             {
+                //db.OrdenProduccion.Select(op=>new OrdenProduccionVM(op))
                 listOrdenProduccion = (from orden in db.OrdenProduccion
-                             select new OrdenProduccionVM
-                             {
-                                 Id = orden.IdOrdenProduccion,
-                                 Numero = orden.Numero,
-                                 FechaInicio = orden.FechaInicio,
-                                 FechaFin = orden.FechaFin,
-                                 Color = new ColorVM
-                                 {
-                                     Id = orden.Color.IdColor,
-                                     Codigo = orden.Color.Codigo,
-                                     Descripcion = orden.Color.Descripcion
-                                 },
-                                 Modelo = new ModeloVM
-                                 {
-                                     Id = orden.Modelo.IdModelo,                                    
-                                     Denominacion = orden.Modelo.Denominacion,
-                                     LimiteInferiorO = orden.Modelo.LimiteInferiorO,
-                                     LimiteInferiorR = orden.Modelo.LimiteInferiorR,
-                                     LimiteSuperiorO = orden.Modelo.LimiteSuperiorO,
-                                     LimiteSuperiorR = orden.Modelo.LimiteSuperiorR,
-                                     Sku = orden.Modelo.SKU
-                                 },
-                                 Linea = new LineaVM
-                                 {
-                                     Id = orden.Linea.IdLinea,
-                                     Numero = orden.Linea.Numero
-                                 },
-                                 EstadoOrden = new EstadoOrdenVM
-                                 {
-                                     Id = orden.EstadoOrden.IdEstadoOrden,
-                                     Descripcion = orden.EstadoOrden.Estado
-                                 },                                                               
-                                 Empleado = new EmpleadoVM
-                                 {
-                                     Id = orden.Empleado.IdEmpleado,
-                                     ApeYNom = orden.Empleado.ApeYNom,
-                                     Email = orden.Empleado.Email,
-                                     Dni = orden.Empleado.DNI,
-                                     Rol = orden.Empleado.Rol
-                                 }
-                             }                                                        
-                             ).ToList();               
-            }          
+                                       select new OrdenProduccionVM
+                                       {
+                                           Id = orden.IdOrdenProduccion,
+                                           Numero = orden.Numero,
+                                           FechaInicio = orden.FechaInicio,
+                                           FechaFin = orden.FechaFin,
+                                           Color = new ColorVM
+                                           {
+                                               Id = orden.Color.IdColor,
+                                               Codigo = orden.Color.Codigo,
+                                               Descripcion = orden.Color.Descripcion
+                                           },
+                                           Modelo = new ModeloVM
+                                           {
+                                               Id = orden.Modelo.IdModelo,
+                                               Denominacion = orden.Modelo.Denominacion,
+                                               LimiteInferiorO = orden.Modelo.LimiteInferiorO,
+                                               LimiteInferiorR = orden.Modelo.LimiteInferiorR,
+                                               LimiteSuperiorO = orden.Modelo.LimiteSuperiorO,
+                                               LimiteSuperiorR = orden.Modelo.LimiteSuperiorR,
+                                               Sku = orden.Modelo.SKU
+                                           },
+                                           Linea = new LineaVM
+                                           {
+                                               Id = orden.Linea.IdLinea,
+                                               Numero = orden.Linea.Numero
+                                           },
+                                           EstadoOrden = new EstadoOrdenVM
+                                           {
+                                               Id = orden.EstadoOrden.IdEstadoOrden,
+                                               Descripcion = orden.EstadoOrden.Estado
+                                           },
+                                           Empleado = new EmpleadoVM
+                                           {
+                                               Id = orden.Empleado.IdEmpleado,
+                                               ApeYNom = orden.Empleado.ApeYNom,
+                                               Email = orden.Empleado.Email,
+                                               Dni = orden.Empleado.DNI,
+                                               Rol = orden.Empleado.Rol
+                                           }
+                                       }
+                             ).ToList();
+            }
             return Ok(listOrdenProduccion);
-             
+
         }
         [HttpGet]
         public IHttpActionResult GetOrdenProduccion(string numero)
@@ -175,52 +180,22 @@ namespace ServidorControlCalidadV2._1.Controllers
         [HttpPost]
         public IHttpActionResult AddOrdenProduccion(OrdenProduccionVM orden)
         {
-            using (ControlCalidadEntities1 db = new ControlCalidadEntities1())
+            try
             {
-                var ordenProduccion = new OrdenProduccion();
-                ordenProduccion.Numero = orden.Numero;
-                ordenProduccion.FechaInicio = orden.FechaInicio;
-                ordenProduccion.IdEstadoOrden = 1;
-                ordenProduccion.IdColor = orden.Color.Id;
-                ordenProduccion.IdModelo = orden.Modelo.Id;
-                ordenProduccion.IdLinea = orden.Linea.Id;
-                ordenProduccion.IdEmpleado = orden.Empleado.Id;                              
-                db.OrdenProduccion.Add(ordenProduccion);
-                db.SaveChanges();
-                //List<OrdenProduccion> ordenEmpleado = new List<OrdenProduccion>();
-                //ordenEmpleado = db.OrdenProduccion.ToList();
-                //foreach (var ord in ordenEmpleado)
-                //{
-                //    if (orden.Empleado.Id == ord.Empleado.IdEmpleado)
-                //    {
-                //        return Ok("El Empleado " + orden.Empleado.ApeYNom + " ya se encuentra en una orden de produccion en este momento");
-                //    }
-                //    else
-                //    {
-                        
-                //        break;
-                //    }
-                //}               
-                //ordenProduccion.AgregarJornadaLaborales(orden.JornadaLaborales, ordenProduccion);               
+                AdministrarOrden administrar = new AdministrarOrden();
+                administrar.PostOrden(orden);
+                return Ok("Creacion Exitosa");
             }
-            return Ok("Creacion Exitosa");
+            catch (Exception)
+            {
+                return BadRequest();
+            }          
         }
         [HttpPut]
-        public IHttpActionResult PutOrden(OrdenProduccionVM orden)
+        public IHttpActionResult PutOrdenn(OrdenProduccionVM orden)
         {
-            using (ControlCalidadEntities1 db = new ControlCalidadEntities1())
-            {
-                var oOrdenProduccion = db.OrdenProduccion.Find(orden.Id);
-                oOrdenProduccion.Numero = orden.Numero;
-                oOrdenProduccion.FechaInicio = orden.FechaInicio;                
-                oOrdenProduccion.IdColor = orden.Color.Id;
-                oOrdenProduccion.IdModelo = orden.Modelo.Id;
-                oOrdenProduccion.IdLinea = orden.Linea.Id;
-                oOrdenProduccion.IdEmpleado = orden.Empleado.Id;
-                oOrdenProduccion.IdEstadoOrden = oOrdenProduccion.CambiarEstado(orden.EstadoOrden.Descripcion);
-                db.Entry(oOrdenProduccion).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
-            }
+            AdministrarOrden administrar = new AdministrarOrden();
+            administrar.PutOrden(orden);           
             return Ok("Modificacion Exitosa");
         }
     }

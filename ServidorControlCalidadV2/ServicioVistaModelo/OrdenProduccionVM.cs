@@ -20,5 +20,11 @@ namespace ServicioVistaModelo
         public ModeloVM Modelo { get; set; }
         public LineaVM Linea { get; set; }
         public AlertaVM Alerta { get; set; }
+
+        public string EmpleadoV2 { get; set; }
+        public string ColorV2 { get; set; }
+        public string ModeloV2 { get; set; }
+        public string LineaV2 { get; set; }
+        public string AlertaV2 { get; set; }
     }
 }

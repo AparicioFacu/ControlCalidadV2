@@ -104,3 +104,6 @@ C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServidorControlCalidadV2.1\
 C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServidorControlCalidadV2.1\obj\Debug\ServidorControlCalidadV2.1.csproj.CopyComplete
 C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServidorControlCalidadV2.1\obj\Debug\ServidorControlCalidadV2.1.dll
 C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServidorControlCalidadV2.1\obj\Debug\ServidorControlCalidadV2.1.pdb
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServidorControlCalidadV2.1\bin\ServicioAplicacion.dll
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServidorControlCalidadV2.1\bin\ServicioAplicacion.pdb
+C:\Users\facu1\source\repos\ServidorControlCalidadV2\ServidorControlCalidadV2.1\bin\ServicioAplicacion.dll.config

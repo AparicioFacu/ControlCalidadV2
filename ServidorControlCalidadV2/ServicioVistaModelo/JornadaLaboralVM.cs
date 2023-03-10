@@ -16,6 +16,9 @@ namespace ServicioVistaModelo
         public int? CParSegunda { get; set; }
         public EmpleadoVM Empleado { get; set; }
         public List<TurnoVM> Turnos { get; set; }
-        public List<RegistroVM> Registros { get; set; }      
+        public List<RegistroVM> Registros { get; set; }
+
+        public string EmpleadoV2 { get; set; }
     }
+
 }

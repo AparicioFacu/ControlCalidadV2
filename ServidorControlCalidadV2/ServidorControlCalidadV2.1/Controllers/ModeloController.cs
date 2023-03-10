@@ -1,4 +1,5 @@
-﻿using ServicioDatos;
+﻿using ServicioAplicacion;
+using ServicioDatos;
 using ServicioModelo.Entidades;
 using ServicioVistaModelo;
 using System;
@@ -57,46 +58,23 @@ namespace ServidorControlCalidadV2._1.Controllers
         [HttpPost]
         public IHttpActionResult AddModelo(ModeloVM mod)
         {
-            using (ControlCalidadEntities1 db = new ControlCalidadEntities1())
-            {
-                var oModelo = new Modelo();
-                oModelo.Denominacion = mod.Denominacion;
-                oModelo.LimiteInferiorO = mod.LimiteInferiorO;
-                oModelo.LimiteInferiorR = mod.LimiteInferiorR;
-                oModelo.LimiteSuperiorO = mod.LimiteSuperiorO;
-                oModelo.LimiteSuperiorR = mod.LimiteSuperiorR;
-                oModelo.SKU = mod.Sku;
-                db.Modelo.Add(oModelo);
-                db.SaveChanges();
-            }
+            AdministrarModelo administrar = new AdministrarModelo();
+            administrar.PostModelo(mod);           
             return Ok("Creacion Exitosa");
         }
         [HttpPut]
-        public IHttpActionResult PutModelo(ModeloVM mod)
+        public IHttpActionResult PutModeloo(ModeloVM mod)
         {
-            using (ControlCalidadEntities1 db = new ControlCalidadEntities1())
-            {
-                var oModelo = db.Modelo.Find(mod.Id);
-                oModelo.Denominacion = mod.Denominacion;
-                oModelo.LimiteInferiorO = mod.LimiteInferiorO;
-                oModelo.LimiteInferiorR = mod.LimiteInferiorR;
-                oModelo.LimiteSuperiorO = mod.LimiteSuperiorO;
-                oModelo.LimiteSuperiorR = mod.LimiteSuperiorR;
-                oModelo.SKU = mod.Sku;
-                db.Entry(oModelo).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
-            }
+
+            AdministrarModelo administrar = new AdministrarModelo();
+            administrar.PutModelo(mod);            
             return Ok("Modificacion Exitosa");
         }
         [HttpDelete]
-        public IHttpActionResult DeleteModelo(ModeloVM mod)
+        public IHttpActionResult DeleteModeloo(ModeloVM mod)
         {
-            using (ControlCalidadEntities1 db = new ControlCalidadEntities1())
-            {
-                var oModelo = db.Modelo.Find(mod.Id);
-                db.Modelo.Remove(oModelo);
-                db.SaveChanges();
-            }
+            AdministrarModelo administrar = new AdministrarModelo();
+            administrar.DeleteModelo(mod);           
             return Ok("Eliminacion Exitosa");
         }
     }

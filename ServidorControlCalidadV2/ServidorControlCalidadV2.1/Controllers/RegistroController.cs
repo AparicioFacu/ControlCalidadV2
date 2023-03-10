@@ -1,4 +1,5 @@
-﻿using ServicioDatos;
+﻿using ServicioAplicacion;
+using ServicioDatos;
 using ServicioModelo.Entidades;
 using ServicioVistaModelo;
 using System;
@@ -184,16 +185,8 @@ namespace ServidorControlCalidadV2._1.Controllers
         [HttpPost]
         public IHttpActionResult AddRegistro(RegistroVM registro)
         {
-            using (ControlCalidadEntities1 db = new ControlCalidadEntities1())
-            {
-                var oRegistro = new Registro();
-                oRegistro.Hora = registro.Hora;
-                oRegistro.IdDefecto = registro.Defecto.Id;
-                oRegistro.IdPie = registro.TipoPie.Id;
-                oRegistro.IdJornadaLaboral = registro.IdJornadaLaboral;
-                db.Registro.Add(oRegistro);
-                db.SaveChanges();
-            }
+            AdministrarOrden administrar = new AdministrarOrden();
+            administrar.AgregarDefecto(registro);            
             return Ok("Creacion Exitosa");
         }
         [HttpDelete]

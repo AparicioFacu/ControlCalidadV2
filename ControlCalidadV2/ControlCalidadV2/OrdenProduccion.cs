@@ -20,5 +20,11 @@ namespace ControlCalidadV2
         public Modelo Modelo { get; set; }
         public Linea Linea { get; set; }
         public Alerta Alerta { get; set; }
+
+        public string EmpleadoV2 { get; set; }
+        public string ColorV2 { get; set; }
+        public string ModeloV2 { get; set; }
+        public string LineaV2 { get; set; }
+        public string AlertaV2 { get; set; }
     }
 }

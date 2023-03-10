@@ -1,4 +1,5 @@
-﻿using ServicioDatos;
+﻿using ServicioAplicacion;
+using ServicioDatos;
 using ServicioModelo.Entidades;
 using ServicioVistaModelo;
 using System;
@@ -49,38 +50,22 @@ namespace ServidorControlCalidadV2._1.Controllers
         [HttpPost]
         public IHttpActionResult AddColor(ColorVM col)
         {
-            using (ControlCalidadEntities1 db = new ControlCalidadEntities1())
-            {
-                var oColor = new Color();
-                oColor.Codigo = col.Codigo;
-                oColor.Descripcion = col.Descripcion;
-                db.Color.Add(oColor);
-                db.SaveChanges();
-            }
+            AdministrarColor administrar = new AdministrarColor();
+            administrar.PostColor(col);
             return Ok("Creacion Exitosa");
         }
         [HttpPut]
-        public IHttpActionResult PutColor(ColorVM col)
+        public IHttpActionResult PutColorr(ColorVM col)
         {
-            using (ControlCalidadEntities1 db = new ControlCalidadEntities1())
-            {
-                var oColor = db.Color.Find(col.Id);
-                oColor.Codigo = col.Codigo;
-                oColor.Descripcion = col.Descripcion;
-                db.Entry(oColor).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
-            }
+            AdministrarColor administrar = new AdministrarColor();
+            administrar.PutColor(col);
             return Ok("Modificacion Exitosa");
         }
         [HttpDelete]
-        public IHttpActionResult DeleteColor(ColorVM col)
+        public IHttpActionResult DeleteColorr(ColorVM col)
         {
-            using (ControlCalidadEntities1 db = new ControlCalidadEntities1())
-            {
-                var oColor = db.Color.Find(col.Id);
-                db.Color.Remove(oColor);
-                db.SaveChanges();
-            }
+            AdministrarColor administrar = new AdministrarColor();
+            administrar.DeleteColor(col);
             return Ok("Eliminacion Exitosa");
         }
     }

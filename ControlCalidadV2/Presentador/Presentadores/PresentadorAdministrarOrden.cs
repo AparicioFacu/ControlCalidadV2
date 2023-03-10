@@ -190,6 +190,8 @@ namespace Presentador.Presentadores
             Put put = new Put();
             Get<OrdenProduccion> getOrden = new Get<OrdenProduccion>();
             OrdenProduccion orden = getOrden.GetOrden(numero);
+            //OrdenProduccion orden = new OrdenProduccion();
+            //orden.Numero = numero;
             orden.EstadoOrden.Descripcion = estado;
             put.PutOrdenProduccion(orden);
             CargarTablaOrdenProduccion(tabla);

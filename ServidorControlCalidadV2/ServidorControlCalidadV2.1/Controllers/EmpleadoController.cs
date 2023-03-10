@@ -1,4 +1,5 @@
-﻿using ServicioDatos;
+﻿using ServicioAplicacion;
+using ServicioDatos;
 using ServicioModelo.Entidades;
 using ServicioVistaModelo;
 using System;
@@ -55,44 +56,22 @@ namespace ServidorControlCalidadV2._1.Controllers
         [HttpPost]
         public IHttpActionResult AddEmpleado(EmpleadoVM emp)
         {
-            using (ControlCalidadEntities1 db = new ControlCalidadEntities1())
-            {
-                var oEmpleado = new Empleado();
-                oEmpleado.DNI = emp.Dni;
-                oEmpleado.ApeYNom = emp.ApeYNom;
-                oEmpleado.Email = emp.Email;
-                oEmpleado.Contraseña = emp.Contraseña;
-                oEmpleado.Rol = emp.Rol;
-                db.Empleado.Add(oEmpleado);
-                db.SaveChanges();
-            }
+            AdministrarEmpleado administrar = new AdministrarEmpleado();
+            administrar.PostEmpleado(emp);
             return Ok("Creacion Exitosa");
         }
         [HttpPut]
-        public IHttpActionResult PutEmpleado(EmpleadoVM emp)
+        public IHttpActionResult PutEmpleadoo(EmpleadoVM emp)
         {
-            using (ControlCalidadEntities1 db = new ControlCalidadEntities1())
-            {
-                var oEmpleado = db.Empleado.Find(emp.Id);
-                oEmpleado.DNI = emp.Dni;
-                oEmpleado.ApeYNom = emp.ApeYNom;
-                oEmpleado.Email = emp.Email;
-                oEmpleado.Contraseña = emp.Contraseña;
-                oEmpleado.Rol = emp.Rol;
-                db.Entry(oEmpleado).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
-            }
+            AdministrarEmpleado administrar = new AdministrarEmpleado();
+            administrar.PutEmpleado(emp);
             return Ok("Modificacion Exitosa");
         }
         [HttpDelete]
-        public IHttpActionResult DeleteEmpleado(EmpleadoVM emp)
+        public IHttpActionResult DeleteEmpleadoo(EmpleadoVM emp)
         {
-            using (ControlCalidadEntities1 db = new ControlCalidadEntities1())
-            {
-                var oEmpleado = db.Empleado.Find(emp.Id);
-                db.Empleado.Remove(oEmpleado);
-                db.SaveChanges();
-            }
+            AdministrarEmpleado administrar = new AdministrarEmpleado();
+            administrar.DeleteEmpleado(emp);
             return Ok("Eliminacion Exitosa");
         }
     }

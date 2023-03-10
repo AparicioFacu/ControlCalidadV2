@@ -17,6 +17,8 @@ namespace ControlCalidadV2
         public Empleado Empleado { get; set; }
         public List<Turno> Turnos { get; set; }
         public List<Registro> Registros { get; set; }
-     
+
+        public string EmpleadoV2  { get; set; }
+
     }
 }

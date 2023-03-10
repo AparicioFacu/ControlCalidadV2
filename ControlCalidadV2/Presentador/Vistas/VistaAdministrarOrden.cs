@@ -243,18 +243,18 @@ namespace Presentador.Vistas
         }
         private void btnDesvincularEmpleado_Click(object sender, EventArgs e)
         {
-            try
-            {
+           // try
+            //{
                 string numero;
                 string estado;
                 DataGridViewRow fila = dgvOrdenProducciones.SelectedRows[0] as DataGridViewRow;
                 estado = fila.Cells["Estado"].Value.ToString();
                 _presentador.DesvincularEmpleado(estado, dgvOrdenProducciones);
-            }
-            catch (Exception)
-            {
+            //}
+            //catch (Exception)
+            //{
 
-            }
+            //}
             
         }
         public void VisibleBotonEstado()
